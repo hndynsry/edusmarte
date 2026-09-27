@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSmart - Aplikasi Belajar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <span>📚</span>
+            <div>
+                <h2>EduSmart</h2>
+                <small>Belajar lebih mudah</small>
+            </div>
+        </div>
+
+        <button class="notification" onclick="showNotification()">
+            🔔
+        </button>
+    </header>
+
+
+    <!-- KONTEN UTAMA -->
+    <main>
+
+        <!-- BERANDA -->
+        <section id="beranda" class="page active">
+
+            <div class="welcome">
+                <div>
+                    <p>Selamat datang 👋</p>
+                    <h1>Halo, Pelajar!</h1>
+                    <span>Siap belajar hari ini?</span>
+                </div>
+                <div class="welcome-icon">🎓</div>
+            </div>
+
+            <h3 class="section-title">Ringkasan Belajar</h3>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <span>📖</span>
+                    <h2>12</h2>
+                    <p>Materi</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>📝</span>
+                    <h2>5</h2>
+                    <p>Tugas</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🏆</span>
+                    <h2>85</h2>
+                    <p>Nilai</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">Menu Cepat</h3>
+
+            <div class="quick-menu">
+                <button onclick="showPage('materi')">
+                    📚
+                    <span>Materi</span>
+                </button>
+
+                <button onclick="showPage('tugas')">
+                    📝
+                    <span>Tugas</span>
+                </button>
+
+                <button onclick="showPage('kuis')">
+                    🎯
+                    <span>Kuis</span>
+                </button>
+
+                <button onclick="showPage('jadwal')">
+                    📅
+                    <span>Jadwal</span>
+                </button>
+            </div>
+
+            <div class="motivation">
+                <h3>💡 Motivasi Hari Ini</h3>
+                <p>
+                    "Jangan takut mencoba hal baru.
+                    Setiap kesalahan adalah bagian dari proses belajar."
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- MATERI -->
+        <section id="materi" class="page">
+
+            <div class="page-title">
+                <h1>📚 Materi</h1>
+                <p>Pelajari materi sesuai pelajaranmu.</p>
+            </div>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchMateri"
+                    placeholder="Cari materi..."
+                    onkeyup="searchMateri()"
+                >
+                🔍
+            </div>
+
+            <div id="materiList">
+
+                <div class="materi-card">
+                    <div class="materi-icon">🌏</div>
+                    <div>
+                        <h3>Geografi</h3>
+                        <p>Materi tentang kondisi geografis Indonesia.</p>
+                        <button onclick="bukaMateri('Geografi')">
+                            Pelajari
+                        </button>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <div class="materi-icon">🏛️</div>
+                    <div>
+                        <h3>Sosiologi</h3>
+                        <p>Pelajari interaksi dan kehidupan masyarakat.</p>
+                        <button onclick="bukaMateri('Sosiologi')">
+                            Pelajari
+                        </button>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <div class="materi-icon">💰</div>
+                    <div>
+                        <h3>Ekonomi</h3>
+                        <p>Pelajari kegiatan ekonomi dan pasar.</p>
+                        <button onclick="bukaMateri('Ekonomi')">
+                            Pelajari
+                        </button>
+                    </div>
+                </div>
+
+                <div class="materi-card">
+                    <div class="materi-icon">📜</div>
+                    <div>
+                        <h3>Sejarah</h3>
+                        <p>Pelajari berbagai peristiwa sejarah Indonesia.</p>
+                        <button onclick="bukaMateri('Sejarah')">
+                            Pelajari
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TUGAS -->
+        <section id="tugas" class="page">
+
+            <div class="page-title">
+                <h1>📝 Tugas</h1>
+                <p>Kelola tugas sekolahmu.</p>
+            </div>
+
+            <div class="task-card">
+                <div>
+                    <span class="badge red">Belum selesai</span>
+                    <h3>Makalah Sosiologi</h3>
+                    <p>📅 Deadline: 30 September 2026</p>
+                </div>
+                <button onclick="selesaiTugas(this)">
+                    Selesai
+                </button>
+            </div>
+
+            <div class="task-card">
+                <div>
+                    <span class="badge yellow">Dikerjakan</span>
+                    <h3>Latihan Ekonomi</h3>
+                    <p>📅 Deadline: 2 Oktober 2026</p>
+                </div>
+                <button onclick="selesaiTugas(this)">
+                    Selesai
+                </button>
+            </div>
+
+            <div class="task-card">
+                <div>
+                    <span class="badge green">Selesai</span>
+                    <h3>Rangkuman Sejarah</h3>
+                    <p>✓ Sudah dikumpulkan</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- KUIS -->
+        <section id="kuis" class="page">
+
+            <div class="page-title">
+                <h1>🎯 Kuis</h1>
+                <p>Uji kemampuanmu dengan kuis.</p>
+            </div>
+
+            <div class="quiz-card">
+
+                <div class="quiz-icon">🧠</div>
+
+                <h2>Kuis IPS</h2>
+
+                <p>
+                    Uji pengetahuanmu tentang Geografi,
+                    Ekonomi, Sosiologi, dan Sejarah.
+                </p>
+
+                <div class="quiz-info">
+                    <span>📋 10 Soal</span>
+                    <span>⏱️ 15 Menit</span>
+                </div>
+
+                <button class="start-btn" onclick="mulaiKuis()">
+                    Mulai Kuis
+                </button>
+
+            </div>
+
+            <div id="quizArea" class="quiz-area"></div>
+
+        </section>
+
+
+        <!-- JADWAL -->
+        <section id="jadwal" class="page">
+
+            <div class="page-title">
+                <h1>📅 Jadwal</h1>
+                <p>Jadwal kegiatan belajar.</p>
+            </div>
+
+            <div class="schedule-card">
+                <span class="day">SENIN</span>
+                <div>
+                    <h3>Geografi</h3>
+                    <p>08.00 - 09.30</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <span class="day">SELASA</span>
+                <div>
+                    <h3>Ekonomi</h3>
+                    <p>09.00 - 10.30</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <span class="day">RABU</span>
+                <div>
+                    <h3>Sosiologi</h3>
+                    <p>08.00 - 09.30</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <span class="day">KAMIS</span>
+                <div>
+                    <h3>Sejarah</h3>
+                    <p>10.00 - 11.30</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <span class="day">JUMAT</span>
+                <div>
+                    <h3>Bahasa Indonesia</h3>
+                    <p>08.00 - 09.30</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- PROFIL -->
+        <section id="profil" class="page">
+
+            <div class="profile-header">
+                <div class="profile-picture">👩🏻‍🎓</div>
+
+                <h2>Pelajar EduSmart</h2>
+                <p>Siswa SMA</p>
+            </div>
+
+            <div class="profile-menu">
+
+                <button onclick="editProfil()">
+                    👤
+                    <span>Edit Profil</span>
+                    <b>›</b>
+                </button>
+
+                <button>
+                    ⚙️
+                    <span>Pengaturan</span>
+                    <b>›</b>
+                </button>
+
+                <button>
+                    🔔
+                    <span>Notifikasi</span>
+                    <b>›</b>
+                </button>
+
+                <button onclick="tentangAplikasi()">
+                    ℹ️
+                    <span>Tentang EduSmart</span>
+                    <b>›</b>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- NAVIGASI BAWAH -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active" onclick="showPage('beranda')">
+            <span>🏠</span>
+            <small>Beranda</small>
+        </button>
+
+        <button class="nav-item" onclick="showPage('materi')">
+            <span>📚</span>
+            <small>Materi</small>
+        </button>
+
+        <button class="nav-item" onclick="showPage('tugas')">
+            <span>📝</span>
+            <small>Tugas</small>
+        </button>
+
+        <button class="nav-item" onclick="showPage('kuis')">
+            <span>🎯</span>
+            <small>Kuis</small>
+        </button>
+
+        <button class="nav-item" onclick="showPage('jadwal')">
+            <span>📅</span>
+            <small>Jadwal</small>
+        </button>
+
+        <button class="nav-item" onclick="showPage('profil')">
+            <span>👤</span>
+            <small>Profil</small>
+        </button>
+
+    </nav>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+                      </html>
